@@ -1,0 +1,17 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: 201
+# key: 201
+# binding: direct-keybinding
+# --
+this.post('$0', function(request) {
+  assert.ok(true, 'did post');
+
+  var mock = JSON.parse(request.requestBody);
+  mock.model.id = 23;
+
+  return [
+    201,
+    {"Content-Type": "application/json"},
+    mock
+  ];
+});

@@ -1,0 +1,14 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: 204
+# key: 204
+# binding: direct-keybinding
+# --
+this.put('$0', function(request) {
+  assert.ok(true, 'did put');
+
+  return [
+    204, {
+      "Content-Type": "application/json"
+    }
+  ];
+});

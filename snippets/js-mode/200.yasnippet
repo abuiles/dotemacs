@@ -1,0 +1,14 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: 200
+# key: 200
+# binding: direct-keybinding
+# --
+this.get('$0', function(request) {
+  assert.ok(true, 'did get');
+
+  return [
+    200,
+    {"Content-Type": "application/json"},
+    {}
+  ];
+});

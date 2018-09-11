@@ -1,0 +1,13 @@
+# -*- mode: snippet -*-
+# name: ember-route
+# key: %route
+# binding: "keybinding"
+# expand-env: ((some-var some-value))
+# --
+import Ember from 'ember';
+
+export default Ember.Route.extend({
+  model: function() {
+    return $0;
+  }
+});

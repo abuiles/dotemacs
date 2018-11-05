@@ -1,0 +1,6 @@
+.mc-lists.el
+auto-save-list/
+elpa/
+ido.last
+network-security.data
+projectile-bookmarks.eld

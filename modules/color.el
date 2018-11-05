@@ -4,7 +4,7 @@
 (use-package zenburn-theme
   :ensure t)
 
-;; (color-theme-zenburn)
+(load-theme 'zenburn t)
 
 (load-theme 'zenburn t)
 

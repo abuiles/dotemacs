@@ -7,7 +7,7 @@
 
 (setq magit-last-seen-setup-instructions "1.4.0")
 
-(package-initialize) ;; You might already have this line
+;; (package-initialize) ;; You might already have this line
 
 (setq make-backup-files nil)
 
@@ -51,10 +51,10 @@
 
 ;; Remember my place in files across sessions
 ;; saveplace remembers your location in a file when saving files
-(setq save-place-file (concat user-emacs-directory "saveplace"))
-;; activate it for all buffers
-(setq-default save-place t)
-(require 'saveplace)
+;; (setq save-place-file (concat user-emacs-directory "saveplace"))
+;; ;; activate it for all buffers
+;; (setq-default save-place t)
+;; (require 'saveplace)
 
 (setenv "PATH" (concat (getenv "PATH") ":/bin"))
 (setq exec-path (append exec-path '("/bin")))
@@ -144,7 +144,7 @@
  '(jsx-indent-level 2)
  '(menu-bar-mode t)
  '(package-selected-packages
-   '(elixir-yasnippets elixir-mode web-beautify highlight graphql-mode markdown-mode tide terraform-mode docker-compose-mode docker magit htmlize mu4e org-jira nvm typescript-mode flymake-solidity solidity-mode git-link yasnippet dumb-jump flow-minor-mode ace-window company-flow add-node-modules-path rjsx-mode flycheck-flow exec-path-from-shell json-mode js2-mode flycheck jsx-mode editorconfig eslint-fix flow-mode zencoding-mode zen-mode yaml-mode web-mode swift-mode scss-mode rvm ruby-block rubocop rspec-mode request quasi-monochrome-theme projectile-rails projectile-codesearch pivotal-tracker pandoc-mode ox-gfm org moe-theme magit-popup magit-gh-pulls js2-refactor grizzl go-mode gist expand-region enh-ruby-mode emojify ember-yasnippets dockerfile-mode diff-hl company-web company-tern color-theme-zenburn cmake-mode avy alchemist ag))
+   '(robe counsel elixir-yasnippets elixir-mode web-beautify highlight graphql-mode markdown-mode tide terraform-mode docker-compose-mode docker magit htmlize mu4e org-jira nvm typescript-mode flymake-solidity solidity-mode git-link yasnippet dumb-jump flow-minor-mode ace-window company-flow add-node-modules-path rjsx-mode flycheck-flow exec-path-from-shell json-mode js2-mode flycheck jsx-mode editorconfig eslint-fix flow-mode zencoding-mode zen-mode yaml-mode web-mode swift-mode scss-mode rvm ruby-block rubocop rspec-mode request quasi-monochrome-theme projectile-rails projectile-codesearch pivotal-tracker pandoc-mode ox-gfm org moe-theme magit-popup magit-gh-pulls js2-refactor grizzl go-mode gist expand-region enh-ruby-mode emojify ember-yasnippets dockerfile-mode diff-hl company-web company-tern color-theme-zenburn cmake-mode avy alchemist ag))
  '(rspec-use-spring-when-possible t)
  '(safe-local-variable-values
    '((eval progn
@@ -155,8 +155,7 @@
  '(send-mail-function nil)
  '(term-default-bg-color "#000000")
  '(term-default-fg-color "#00F94F")
- '(tide-tsserver-executable
-   "\"/Users/adolfobuiles/.nvm/versions/node/v8.1.3/bin/tsserver\"")
+ '(tide-tsserver-executable "\"/Users/abuiles/.nvm/versions/node/v8.1.3/bin/tsserver\"")
  '(tramp-syntax 'default nil (tramp))
  '(typescript-indent-level 2)
  '(web-mode-attr-indent-offset 2)
@@ -206,15 +205,17 @@
 
 ;; Projectile
 
-(use-package grizzl
-  :ensure t)
 (use-package projectile
-  :ensure t)
+  :ensure t
+  :config
+  (define-key projectile-mode-map (kbd "s-p") 'projectile-command-map)
+  (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
+  (projectile-mode +1))
 
-(require 'grizzl)
+
 (projectile-global-mode)
 (setq projectile-enable-caching t)
-(setq projectile-completion-system 'grizzl)
+(setq projectile-completion-system 'ivy)
 ;; Press Command-p for fuzzy find in project
 (global-set-key (kbd "s-p") 'projectile-find-file)
 ;; Press Command-b for fuzzy switch buffer
@@ -269,12 +270,14 @@
 (require 'custom-js)
 (require 'custom-eslint)
 (require 'flowlint)
-(require 'custom-ext-window-nav)
-(require 'custom-exec-path)
-(require 'custom-react)
+;; (require 'custom-ext-window-nav)
+;; (require 'custom-exec-path)
+;; (require 'custom-react)
 (require 'custom-git)
-(require 'solidity)
-(require 'custom-typescript)
-(require 'jira)
-(require 'custom-mu4e)
+;; (require 'solidity)
+;; (require 'custom-typescript)
+;; (require 'jira)
+;; (require 'custom-mu4e)
 (require 'elixir)
+(require 'ruby)
+(require 'markdown)

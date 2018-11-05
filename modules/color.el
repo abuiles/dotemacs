@@ -6,4 +6,6 @@
 
 ;; (color-theme-zenburn)
 
+(load-theme 'zenburn t)
+
 (provide 'color)

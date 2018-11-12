@@ -25,5 +25,7 @@
   (add-hook 'js2-mode-hook 'prettier-js-mode)
   (add-hook 'web-mode-hook 'prettier-js-mode))
 
+(use-package vue-mode
+  :ensure t)
 
 (provide 'custom-js)

@@ -1,5 +1,9 @@
 (use-package company
   :ensure t)
+(use-package company-web
+  :ensure t)
+(use-package company-tern
+  :ensure t)
 
 (require 'company)
 (add-to-list 'company-backends 'company-tern)

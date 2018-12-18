@@ -12,6 +12,9 @@
   :config
   (projectile-rails-global-mode))
 
+(use-package rails-log-mode
+  :ensure t)
+
 (add-hook 'ruby-mode-hook 'robe-mode)
 
 (require 'rvm)

@@ -7,13 +7,13 @@
 (defun ember-test (beg end)
   "run ember test with selected module."
   (interactive "r")
-  (browse-url (concat "http://localhost:4200/tests?module=" (buffer-substring beg end))))
+  (browse-url (concat "https://dashboard.envoy.dev/tests?module=" (buffer-substring beg end))))
 
 ;; ember-test with filter
 (defun ember-test-filter (beg end)
   "run ember test with selected module."
   (interactive "r")
-  (browse-url (concat "http://localhost:4200/tests?filter=" (buffer-substring beg end))))
+  (browse-url (concat "https://dashboard.envoy.dev/tests?filter=" (buffer-substring beg end))))
 
 (defun translate-region (beg end)
   "Show the translation for the selected word."

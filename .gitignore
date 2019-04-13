@@ -6,3 +6,5 @@ network-security.data
 projectile-bookmarks.eld
 projectile.cache
 viper
+tramp
+eshell/

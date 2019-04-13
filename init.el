@@ -139,12 +139,14 @@
  ;; If there is more than one, they won't work right.
  '(css-indent-level 2)
  '(css-indent-offset 2)
+ '(custom-safe-themes
+   '("89dd0329d536d389753111378f2425bd4e4652f892ae8a170841c3396f5ba2dd" default))
  '(js-indent-level 2)
  '(js2-basic-offset 2)
  '(jsx-indent-level 2)
  '(menu-bar-mode t)
  '(package-selected-packages
-   '(vue-mode prettier-js robe counsel elixir-yasnippets elixir-mode web-beautify highlight graphql-mode markdown-mode tide terraform-mode docker-compose-mode docker magit htmlize mu4e org-jira nvm typescript-mode flymake-solidity solidity-mode git-link yasnippet dumb-jump flow-minor-mode ace-window company-flow add-node-modules-path rjsx-mode flycheck-flow exec-path-from-shell json-mode js2-mode flycheck jsx-mode editorconfig eslint-fix flow-mode zencoding-mode zen-mode yaml-mode web-mode swift-mode scss-mode rvm ruby-block rubocop rspec-mode request quasi-monochrome-theme projectile-rails projectile-codesearch pivotal-tracker pandoc-mode ox-gfm org moe-theme magit-popup magit-gh-pulls js2-refactor grizzl go-mode gist expand-region enh-ruby-mode emojify ember-yasnippets dockerfile-mode diff-hl company-web company-tern color-theme-zenburn cmake-mode avy alchemist ag))
+   '(go-dlv rails-log-mode php-mode company-web-html vue-mode prettier-js robe counsel elixir-yasnippets elixir-mode web-beautify highlight graphql-mode markdown-mode tide terraform-mode docker-compose-mode docker magit htmlize mu4e org-jira nvm typescript-mode flymake-solidity solidity-mode git-link yasnippet dumb-jump flow-minor-mode ace-window company-flow add-node-modules-path rjsx-mode flycheck-flow exec-path-from-shell json-mode js2-mode flycheck jsx-mode editorconfig eslint-fix flow-mode zencoding-mode zen-mode yaml-mode web-mode swift-mode scss-mode rvm ruby-block rubocop rspec-mode request quasi-monochrome-theme projectile-rails projectile-codesearch pivotal-tracker pandoc-mode ox-gfm org moe-theme magit-popup magit-gh-pulls js2-refactor grizzl go-mode gist expand-region enh-ruby-mode emojify ember-yasnippets dockerfile-mode diff-hl company-web company-tern cmake-mode avy alchemist ag))
  '(rspec-use-spring-when-possible t)
  '(safe-local-variable-values
    '((eval progn
@@ -263,6 +265,8 @@
 (require 'custom-snippets)
 (require 'font)
 (require 'color)
+(load-theme 'zenburn t)
+
 (require 'custom-keybindings)
 (require 'custom-company)
 (require 'custom-ispell)
@@ -273,14 +277,19 @@
 (require 'custom-js)
 (require 'custom-eslint)
 (require 'flowlint)
-;; (require 'custom-ext-window-nav)
-;; (require 'custom-exec-path)
-;; (require 'custom-react)
 (require 'custom-git)
-;; (require 'solidity)
-;; (require 'custom-typescript)
-;; (require 'jira)
-;; (require 'custom-mu4e)
 (require 'elixir)
 (require 'ruby)
 (require 'markdown)
+(require 'ios)
+(require 'docker)
+(require 'go)
+
+;; (require 'custom-ext-window-nav)
+;; (require 'custom-exec-path)
+(require 'custom-react)
+;; (require 'solidity)
+(require 'custom-typescript)
+;; (require 'jira)
+;; (require 'custom-mu4e)
+(put 'downcase-region 'disabled nil)

@@ -19,16 +19,4 @@
 (add-hook 'web-mode-hook  'my-web-mode-hook)
 (setq js-indent-level 2)
 
-(use-package prettier-js
-  :ensure t
-  :config
-  (add-hook 'js2-mode-hook 'prettier-js-mode)
-  (add-hook 'web-mode-hook 'prettier-js-mode))
-
-(use-package vue-mode
-  :ensure t)
-
-(use-package vue-html-mode
-  :ensure t)
-
 (provide 'custom-js)

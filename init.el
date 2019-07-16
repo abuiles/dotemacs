@@ -1,9 +1,17 @@
-(require 'package) ;; You might already have this line
+(require 'package)
 (add-to-list 'package-archives
-             '("marmalade" . "https://marmalade-repo.org/packages/") t)
-
-(add-to-list 'package-archives
-'("melpa" . "http://melpa.milkbox.net/packages/") t)
+             '("melpa-stable" . "https://stable.melpa.org/packages/") t)
+(package-initialize)
+;; Bootstrap 'use-package'
+(eval-after-load 'gnutls
+  '(add-to-list 'gnutls-trustfiles "/etc/ssl/cert.pem"))
+(unless (package-installed-p 'use-package)
+  (package-refresh-contents)
+  (package-install 'use-package))
+(eval-when-compile
+  (require 'use-package))
+(require 'bind-key)
+(setq use-package-always-ensure t)
 
 (setq magit-last-seen-setup-instructions "1.4.0")
 
@@ -140,25 +148,29 @@
  '(css-indent-level 2)
  '(css-indent-offset 2)
  '(custom-safe-themes
-   '("89dd0329d536d389753111378f2425bd4e4652f892ae8a170841c3396f5ba2dd" default))
+   (quote
+    ("89dd0329d536d389753111378f2425bd4e4652f892ae8a170841c3396f5ba2dd" default)))
  '(js-indent-level 2)
  '(js2-basic-offset 2)
  '(jsx-indent-level 2)
  '(menu-bar-mode t)
  '(package-selected-packages
-   '(go-dlv rails-log-mode php-mode company-web-html vue-mode prettier-js robe counsel elixir-yasnippets elixir-mode web-beautify highlight graphql-mode markdown-mode tide terraform-mode docker-compose-mode docker magit htmlize mu4e org-jira nvm typescript-mode flymake-solidity solidity-mode git-link yasnippet dumb-jump flow-minor-mode ace-window company-flow add-node-modules-path rjsx-mode flycheck-flow exec-path-from-shell json-mode js2-mode flycheck jsx-mode editorconfig eslint-fix flow-mode zencoding-mode zen-mode yaml-mode web-mode swift-mode scss-mode rvm ruby-block rubocop rspec-mode request quasi-monochrome-theme projectile-rails projectile-codesearch pivotal-tracker pandoc-mode ox-gfm org moe-theme magit-popup magit-gh-pulls js2-refactor grizzl go-mode gist expand-region enh-ruby-mode emojify ember-yasnippets dockerfile-mode diff-hl company-web company-tern cmake-mode avy alchemist ag))
+   (quote
+    (paradox go-dlv rails-log-mode php-mode company-web-html vue-mode prettier-js robe counsel elixir-yasnippets elixir-mode web-beautify highlight graphql-mode markdown-mode tide terraform-mode docker-compose-mode docker magit htmlize mu4e org-jira nvm typescript-mode flymake-solidity solidity-mode git-link yasnippet dumb-jump flow-minor-mode ace-window company-flow add-node-modules-path rjsx-mode flycheck-flow exec-path-from-shell json-mode js2-mode flycheck jsx-mode editorconfig eslint-fix flow-mode zencoding-mode zen-mode yaml-mode web-mode swift-mode scss-mode rvm ruby-block rubocop rspec-mode request quasi-monochrome-theme projectile-rails projectile-codesearch pivotal-tracker pandoc-mode ox-gfm org moe-theme magit-popup magit-gh-pulls js2-refactor grizzl go-mode gist expand-region enh-ruby-mode emojify ember-yasnippets dockerfile-mode diff-hl company-web company-tern cmake-mode avy alchemist ag)))
  '(rspec-use-spring-when-possible t)
  '(safe-local-variable-values
-   '((eval progn
-           (add-to-list 'exec-path
-                        (concat
-                         (locate-dominating-file default-directory ".dir-locals.el")
-                         "node_modules/.bin/")))))
+   (quote
+    ((eval progn
+           (add-to-list
+            (quote exec-path)
+            (concat
+             (locate-dominating-file default-directory ".dir-locals.el")
+             "node_modules/.bin/"))))))
  '(send-mail-function nil)
  '(term-default-bg-color "#000000")
  '(term-default-fg-color "#00F94F")
  '(tide-tsserver-executable "\"/Users/abuiles/.nvm/versions/node/v8.1.3/bin/tsserver\"")
- '(tramp-syntax 'default nil (tramp))
+ '(tramp-syntax (quote default) nil (tramp))
  '(typescript-indent-level 2)
  '(web-mode-attr-indent-offset 2)
  '(web-mode-code-indent-offset 2)
@@ -276,13 +288,11 @@
 (require 'custom-node-env)
 (require 'custom-js)
 (require 'custom-eslint)
-(require 'flowlint)
 (require 'custom-git)
 (require 'elixir)
 (require 'ruby)
 (require 'markdown)
 (require 'ios)
-(require 'docker)
 (require 'go)
 
 ;; (require 'custom-ext-window-nav)

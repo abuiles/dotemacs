@@ -1,17 +1,3 @@
-;; Install paradox if not avaialble
-;; https://github.com/Malabarba/paradox
-(when (not (package-installed-p 'paradox))
-  (package-install 'paradox))
-
-(paradox-require 'use-package)
-(require 'use-package)
-
-;; Finally, we enable `use-package-always-ensure' which makes
-;; use-package install every declared package automatically from ELPA,
-;; instead of expecting you to do it manually.
-(setq use-package-always-ensure t)
-
-
 ;; Multiple cursors for emacs.
 ;;  https://github.com/magnars/multiple-cursors.el
 (use-package multiple-cursors

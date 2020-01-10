@@ -160,7 +160,9 @@
  '(rspec-use-spring-when-possible t)
  '(safe-local-variable-values
    (quote
-    ((eval progn
+    ((org-publish-project-alist
+      ("books" :base-directory "~/code/books/src" :publishing-directory "~/code/books/" :publishing-function org-html-publish-to-html :with-author nil :with-timestamps nil :html-postamble nil :section-numbers nil))
+     (eval progn
            (add-to-list
             (quote exec-path)
             (concat

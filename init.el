@@ -1,6 +1,9 @@
 (require 'package)
-(add-to-list 'package-archives
-             '("melpa-stable" . "https://stable.melpa.org/packages/") t)
+(add-to-list
+ 'package-archives
+ ;; '("melpa" . "http://stable.melpa.org/packages/") ; many packages won't show if using stable
+ '("melpa" . "http://melpa.milkbox.net/packages/"))
+
 (package-initialize)
 ;; Bootstrap 'use-package'
 (eval-after-load 'gnutls
@@ -154,13 +157,16 @@
  '(js2-basic-offset 2)
  '(jsx-indent-level 2)
  '(menu-bar-mode t)
+ '(org-export-backends (quote (ascii html icalendar latex md odt)))
  '(package-selected-packages
    (quote
-    (paradox go-dlv rails-log-mode php-mode company-web-html vue-mode prettier-js robe counsel elixir-yasnippets elixir-mode web-beautify highlight graphql-mode markdown-mode tide terraform-mode docker-compose-mode docker magit htmlize mu4e org-jira nvm typescript-mode flymake-solidity solidity-mode git-link yasnippet dumb-jump flow-minor-mode ace-window company-flow add-node-modules-path rjsx-mode flycheck-flow exec-path-from-shell json-mode js2-mode flycheck jsx-mode editorconfig eslint-fix flow-mode zencoding-mode zen-mode yaml-mode web-mode swift-mode scss-mode rvm ruby-block rubocop rspec-mode request quasi-monochrome-theme projectile-rails projectile-codesearch pivotal-tracker pandoc-mode ox-gfm org moe-theme magit-popup magit-gh-pulls js2-refactor grizzl go-mode gist expand-region enh-ruby-mode emojify ember-yasnippets dockerfile-mode diff-hl company-web company-tern cmake-mode avy alchemist ag)))
+    (direnv csv-mode csv visual-fill-column org-preview-html paradox go-dlv rails-log-mode php-mode company-web-html vue-mode prettier-js robe counsel elixir-yasnippets elixir-mode web-beautify highlight graphql-mode markdown-mode tide terraform-mode docker-compose-mode docker magit htmlize mu4e org-jira nvm typescript-mode flymake-solidity solidity-mode git-link yasnippet dumb-jump flow-minor-mode ace-window company-flow add-node-modules-path rjsx-mode flycheck-flow exec-path-from-shell json-mode js2-mode flycheck jsx-mode editorconfig eslint-fix flow-mode zencoding-mode zen-mode yaml-mode web-mode swift-mode scss-mode rvm ruby-block rubocop rspec-mode request quasi-monochrome-theme projectile-rails projectile-codesearch pivotal-tracker pandoc-mode ox-gfm org moe-theme magit-popup magit-gh-pulls js2-refactor grizzl go-mode gist expand-region enh-ruby-mode emojify ember-yasnippets dockerfile-mode diff-hl company-web company-tern cmake-mode avy alchemist ag)))
  '(rspec-use-spring-when-possible t)
  '(safe-local-variable-values
    (quote
     ((org-publish-project-alist
+      ("books" :base-directory "~/code/abuiles.com/books/src" :publishing-directory "~/code/abuiles.com/books/" :publishing-function org-html-publish-to-html :with-author nil :with-timestamps nil :html-postamble nil :section-numbers nil))
+     (org-publish-project-alist
       ("books" :base-directory "~/code/books/src" :publishing-directory "~/code/books/" :publishing-function org-html-publish-to-html :with-author nil :with-timestamps nil :html-postamble nil :section-numbers nil))
      (eval progn
            (add-to-list
@@ -305,3 +311,6 @@
 ;; (require 'jira)
 ;; (require 'custom-mu4e)
 (put 'downcase-region 'disabled nil)
+
+(require 'orgconf)
+(require 'direnvenv)
